@@ -13,4 +13,31 @@
 
 
 
-  <!-- two way binding -->
+  <!-- two way binding   [()]    FormsModule-->
+  <br>
+  <input type="text" [(ngModel)]="firstName"  >
+  <button (click)="saveName()">Save</button>
+  <br>
+  <!-- <p>{{savedFirstName}}</p> -->
+  <br>
+
+  <button (click)="showList()">Show User List</button>
+
+    <!-- სტრუქტურული დეკორატორი *ngFor   *ngIf -->
+
+  <ul  *ngIf="isVisible">
+
+    
+     <div class="ligrppup" *ngFor="let el of namesArr let index =index">
+        <li >{{el.toUpperCase()}}</li>
+        <button  (click)="delete(index)">Dalete</button>
+        <button  (click)="eddit(index)">Eddit</button>
+     </div>
+     <!-- <li  *ngFor="let el of namesArr">{{makeUpperCaase(el)}}</li> -->
+  </ul>
+
+
+
+
+
+   
