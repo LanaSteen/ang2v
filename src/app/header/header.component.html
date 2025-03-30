@@ -1,4 +1,16 @@
-<p class="mainTitle">header works!</p>
 
 
-<app-button [info]="butonTextFromHeader"></app-button>
+
+<nav>
+    <ul>
+        <li><a routerLink="/home" [routerLinkActive]="activeClass">Home</a></li>
+        <li><a routerLink="/main" [routerLinkActive]="activeClass">Main</a></li>
+
+        <button routerLink="/home">Home</button>
+        <app-button [info]="butonTextFromHeader"></app-button>
+    </ul>
+</nav>
+
+
+
+

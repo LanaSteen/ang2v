@@ -4,16 +4,17 @@
 
 
 <div class="cont" *ngIf="visible">
-     <div class="card" *ngFor="let studernt of studentData let i = index">
-        <p>{{studernt.name}}</p>
-        <p>{{studernt.age}}</p>
-        <p>{{studernt.grade}}</p>
-        <p>{{studernt.address.street}}</p>
-        <p>{{studernt.address.city}}</p>
-        <p>{{studernt.address.zip}}</p>
-        <button (click)="delete(i)" class="btn btn-danger">Delete</button>
-        <button (click)="edit(i)" class="btn btn-warning">Edit</button>
-     </div>
+
+
+    <app-card 
+            *ngFor="let studerntFromParent of studentData let i = index"
+            [studernt] ="studerntFromParent"
+             [ind]  = "i"
+            (delSt)="delete($event)"
+            (edditSt)="edit($event)"
+
+           ></app-card>
+
 </div>
 
 

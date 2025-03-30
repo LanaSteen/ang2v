@@ -5,3 +5,25 @@
     font-size: 30px;
     color: blue;
 }
+
+nav {
+    height: 100%;
+     ul {
+        height: 100%;
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        align-items: center;
+        li {
+             a{
+                text-decoration: none;
+             }
+        }
+     }
+}
+
+
+.active{
+    color: red;
+    background-color: rgb(177, 135, 235);
+}
