@@ -37,7 +37,8 @@ export class MainComponent {
       console.log(this.newStudent)
 
          if(form.valid){
-           this.studentArr.push({...this.newStudent})
+           this.studentArr.push({...this.newStudent,
+            address: { ...this.newStudent.address}})
          }
 
          form.resetForm()
