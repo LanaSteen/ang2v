@@ -1,24 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
 import { User } from '../Models/user';
-import { CommonFuncService } from '../Services/common-func.service';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-details',
+  selector: 'app-users',
   standalone: true,
-  imports: [RouterModule],
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.scss'
+  imports: [CommonModule, RouterModule],
+  templateUrl: './users.component.html',
+  styleUrl: './users.component.scss'
 })
-export class DetailsComponent implements OnInit {
+export class UsersComponent {
 
-     constructor(private rout : ActivatedRoute, private commonFunc :CommonFuncService){
-       this.rout.params.subscribe(data => this.getSngleUser(data['id']))
 
-     }
 
-  singleUser? : User = new User()  
-
+  
   userArr : User[] = [
     {
       id: 1,
@@ -64,35 +60,8 @@ export class DetailsComponent implements OnInit {
     },
   ];
 
-    getSngleUser(id : number){
-
-      this.singleUser = this.userArr.find((user) => user.id == id)
-      // console.log(`user info ${this.singleUser}`)
-      this.commonFunc.printinConsole("user info", JSON.stringify(this.singleUser))
-
-    }
 
 
 
-     ngOnInit(){
-       console.log("hi")
-       this.titles = []
-      //  console.log(this.rout.snapshot.queryParamMap.get("id"))
-     }
-
-     titles = []
-
-
-     
 
 }
-
-
-
-
-// life cycle hook
-
-///fetch     prommise         then
-// params    observable       subsccrite
-
-
