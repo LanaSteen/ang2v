@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { User } from '../Models/user';
 import { CommonFuncService } from '../Services/common-func.service';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-details',
@@ -12,13 +13,15 @@ import { CommonFuncService } from '../Services/common-func.service';
 })
 export class DetailsComponent implements OnInit {
 
-     constructor(private rout : ActivatedRoute, private commonFunc :CommonFuncService){
+     constructor(private rout : ActivatedRoute, 
+          private commonFunc :CommonFuncService,
+           private api : UserService){
        this.rout.params.subscribe(data => this.getSngleUser(data['id']))
 
      }
 
-  singleUser? : User = new User()  
-
+  // singleUser? : User = new User()  
+  singleUser :any
   userArr : User[] = [
     {
       id: 1,
@@ -65,19 +68,35 @@ export class DetailsComponent implements OnInit {
   ];
 
     getSngleUser(id : number){
-
-      this.singleUser = this.userArr.find((user) => user.id == id)
+      // this.singleUser = this.userArr.find((user) => user.id == id)
       // console.log(`user info ${this.singleUser}`)
       this.commonFunc.printinConsole("user info", JSON.stringify(this.singleUser))
 
+        this.api.getUserById(id).subscribe((resp:any) => {   
+        this.singleUser = resp.data
+     })
+
+
     }
+  //  როცა არ მუშაობდა    this.api.getUserById(id).subscribe((resp) => {     აქ resp ს სჭირდებოდა any ტიპი 
+      
+    // getSngleUser(id : number){
+
+    //   // this.singleUser = this.userArr.find((user) => user.id == id)
+    //   // console.log(`user info ${this.singleUser}`)
+    //   this.commonFunc.printinConsole("user info", JSON.stringify(this.singleUser))
+
+    //     this.api.getUserById(id).subscribe((resp) => {   
+    //     this.singleUser = resp.data
+    //  })
 
 
+    // }
+ 
 
+    
      ngOnInit(){
-       console.log("hi")
-       this.titles = []
-      //  console.log(this.rout.snapshot.queryParamMap.get("id"))
+
      }
 
      titles = []
