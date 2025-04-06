@@ -70,9 +70,8 @@ export class DetailsComponent implements OnInit {
     getSngleUser(id : number){
       // this.singleUser = this.userArr.find((user) => user.id == id)
       // console.log(`user info ${this.singleUser}`)
-      this.commonFunc.printinConsole("user info", JSON.stringify(this.singleUser))
-
-        this.api.getUserById(id).subscribe((resp:any) => {   
+        this.commonFunc.printinConsole("user info", JSON.stringify(this.singleUser))
+        this.api.getUserById(id).subscribe((resp: any) => {   
         this.singleUser = resp.data
      })
 

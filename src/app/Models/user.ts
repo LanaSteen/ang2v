@@ -8,3 +8,9 @@ export class User {
     avatar!:  string;
 }
 
+
+
+export class regUSer {
+    email! : string;
+    password!: string;
+}

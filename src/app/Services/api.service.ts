@@ -16,6 +16,10 @@ export class ApiService {
   getById(url : string, id : number){
     return this.http.get(`${url}/${id}`)
   }
+
+  postApi(url: string, obj: any){
+      return this.http.post(url, obj)
+  }
 }
 
 

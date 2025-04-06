@@ -1,0 +1,25 @@
+form{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+@media screen  and (max-width: 800px){
+    form{
+        background-color: red;
+    }  
+}
+
+
+
+
+
+// mobile first
+
+// 0 - 375
+
+// min

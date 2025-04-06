@@ -14,7 +14,8 @@ import { ButtonComponent } from "../header/button/button.component";
 export class HomeComponent {
   
   id = 10
-
+  
+  
 
   title = 'MY first Project';
   userName = "JOHN"
