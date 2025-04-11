@@ -3,18 +3,19 @@ import { UserService } from '../Services/user.service';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { LocalStrService } from '../Services/local-str.service';
+import { CurrencyPipe, DatePipe, LowerCasePipe, PercentPipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, DatePipe, LowerCasePipe, UpperCasePipe, CurrencyPipe, PercentPipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 constructor(private http : UserService, private router : Router, private local : LocalStrService){}
 
-
+  curDat = new Date()
     email : string =""
     password : string = ""
 

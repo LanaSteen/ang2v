@@ -6,3 +6,17 @@
     <input type="password" [(ngModel)]="password" placeholder="password" name="password">
     <button type="submit">Log In</button>
 </form>
+
+
+<p>{{curDat | date: 'short'}}</p>
+<p>{{curDat | date: 'fullDate'}}</p>
+<p>{{curDat | date: 'shortTime'}}</p>
+
+<p>{{curDat | date: 'yyyy-MM-dd'}}</p>
+
+
+<p>{{"etxt" | lowercase}}</p>
+
+<p>{{"etxt" | uppercase}}</p>
+<p>{{1236546.6545 | currency : 'EUR'}}</p>
+

@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { User } from '../Models/user';
 import { CommonFuncService } from '../Services/common-func.service';
 import { UserService } from '../Services/user.service';
+import { ErrorDialogComponent } from "../error-dialog/error-dialog.component";
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, ErrorDialogComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
@@ -19,6 +20,9 @@ export class DetailsComponent implements OnInit {
        this.rout.params.subscribe(data => this.getSngleUser(data['id']))
 
      }
+
+
+    //  currentDate = new Date()
 
   // singleUser? : User = new User()  
   singleUser :any
