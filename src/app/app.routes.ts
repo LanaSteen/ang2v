@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component';
 import { ErrorComponent } from './error/error.component';
 import { DetailsComponent } from './details/details.component';
 import { UsersComponent } from './users/users.component';
+import { AuthGuard } from './search/auth.guard';
 
 export const routes: Routes = [
                                    /////////////////////////    eagger Loading
@@ -35,7 +36,9 @@ export const routes: Routes = [
     },
     { 
         path: "users",
-        loadComponent: () => import('./users/users.component').then(m => m.UsersComponent)
+        loadComponent: () => import('./users/users.component').then(m => m.UsersComponent),
+        canActivate : [AuthGuard], 
+
     },
     { 
         path: "register",

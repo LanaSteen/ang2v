@@ -1,5 +1,9 @@
 <p>login works!</p>
 
+<h2 *ngIf="throwFromOtherRoute">For this action you need to log in</h2>
+
+
+
 <form #userForm="ngForm" (ngSubmit)="register(userForm)">
 
     <input type="email" [(ngModel)]="email" placeholder="email" name="email">

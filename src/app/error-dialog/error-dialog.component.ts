@@ -15,6 +15,7 @@ export class ErrorDialogComponent {
           state => {
             this.showDialog = state.show
             this.erroMessage = state.message
+            document.body.style.overflow='hidden'
           }
         )
   }
@@ -24,5 +25,6 @@ export class ErrorDialogComponent {
   closeDialog(){
      this.showDialog = false
      this.erroHandler.hideDialog()
+       document.body.style.overflow='scroll'
   }
 }
