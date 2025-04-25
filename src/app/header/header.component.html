@@ -3,6 +3,8 @@
 
 <nav>
     <ul>
+        <li><a routerLink="/signal" [routerLinkActive]="activeClass">Signal</a></li>
+        <li><a routerLink="/signal2" [routerLinkActive]="activeClass">Signal2</a></li>
         <li><a routerLink="/home" [routerLinkActive]="activeClass">Home</a></li>
         <li><a routerLink="/main" [routerLinkActive]="activeClass">Main</a></li>
         <li><a routerLink="/users" [routerLinkActive]="activeClass">Users</a></li>
@@ -10,7 +12,9 @@
         <li><a routerLink="/login" [routerLinkActive]="activeClass">Log In</a></li>
         <button routerLink="/home">Home</button>
         <app-button [info]="butonTextFromHeader"></app-button>
+        <h2>User Name from signal {{userNameFromRegister}}</h2>
     </ul>
+
 </nav>
 
 

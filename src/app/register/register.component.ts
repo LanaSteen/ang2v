@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../Services/user.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SignalService } from '../Services/signal.service';
 
 @Component({
   selector: 'app-register',
@@ -11,13 +12,23 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-   constructor(private http : UserService, private router : Router){}
+   constructor(private http : UserService, private router : Router, private sig: SignalService){
+       
+   }
 
+
+
+     userName = ""
+
+     SaveUserName(){
+      this.sig.setUserName(this.userName)
+     }
 
     email : string =""
     password : string = ""
 
     register(form : NgForm){
+       
         if(form.valid){
 
           let user = {

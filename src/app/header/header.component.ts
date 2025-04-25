@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { ButtonComponent } from './button/button.component';
 import { RouterModule } from '@angular/router';
+import { SignalService } from '../Services/signal.service';
 
 
 
@@ -12,8 +13,19 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+   constructor(private sig : SignalService){
+     
+        effect(()=> {
+          this.userNameFromRegister = this.sig.userNameFromSig()
+        })
+
+   }
+
    butonTextFromHeader = "Log In"
 
 
    activeClass = "active"
+
+
+   userNameFromRegister = ""
 }
